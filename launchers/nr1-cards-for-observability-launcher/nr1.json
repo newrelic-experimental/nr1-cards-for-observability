@@ -1,0 +1,7 @@
+{
+    "schemaType": "LAUNCHER",
+    "id": "nr1-cards-for-observability-launcher",
+    "displayName": "Cards For Observability",
+    "description": "Cards For Observability",
+    "rootNerdletId": "nr1-cards-for-observability-nerdlet"
+}

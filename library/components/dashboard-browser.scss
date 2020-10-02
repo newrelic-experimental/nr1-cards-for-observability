@@ -1,0 +1,121 @@
+$neon-red: #ff1177;
+$neon-blue: #228dff;
+$neon-yellow: #ffdd1b;
+$neon-green: #b6ff00;
+$neon-orange: #ff9900;
+$neon-violet: #ff00de;
+
+.account-picker {
+  flex-grow: 0;
+  height: 2rem;
+  min-height: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.dashboard-list {
+  .item {
+    .name {
+      padding: 1em;
+      text-align: center;
+    }
+    
+    .control-bar {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      right: 1em;
+      opacity: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .del, .fav {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 50%;
+        color: #646b8c;
+        text-align: center;
+        vertical-align: middle;
+        transition: .5s;
+
+        .icon {
+          svg {
+            fill: #646b8c;
+          }
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: $neon-blue;
+          transform: scale(0.9);
+          z-index: -1;
+        }
+
+        &:hover {
+          box-shadow: 0 0 5px $neon-blue;
+          .icon {
+            svg {
+              fill: $neon-blue;
+              filter: drop-shadow(0 0 5px $neon-blue);
+            }
+          }
+
+          &:before {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px $neon-blue;
+          }
+        }
+      }
+
+      .fav {
+        &.mark {
+          .icon {
+            svg {
+              fill: $neon-blue;
+              filter: drop-shadow(0 0 5px $neon-blue);
+            }
+          }
+        }
+      }
+
+      .del {
+        .icon {
+          svg {
+            fill: $neon-red;
+          }
+        }
+
+        &:hover {
+          box-shadow: 0 0 5px $neon-red;
+          .icon {
+            svg {
+              fill: $neon-red;
+              filter: drop-shadow(0 0 5px $neon-red);
+            }
+          }
+
+          &:before {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px $neon-red;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .control-bar {
+        opacity: 1;
+      }
+    }
+  }
+}
