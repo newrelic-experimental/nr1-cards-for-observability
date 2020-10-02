@@ -1,0 +1,52 @@
+.cards-editor-container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .editor {
+    padding: .5em;
+    overflow: hidden;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      height: 65%;
+
+      textarea {
+        height: 85%;
+      }
+
+      .settings {
+        margin: 0 auto;
+        width: 90%;
+      }
+    }
+
+    .styles {
+      height: 30%;
+    }
+
+    textarea {
+      display: block;
+      border-radius: 12px;
+      margin: .5em auto;
+      width: 90%;
+      height: 90%;
+      padding: .5em;
+      background-color: #171827;
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+      border: none;
+      color: #bbc1e1;
+      font-size: 16px;
+      font-family: "Fira Mono", monospace;
+      white-space: pre-wrap;
+      resize: none;
+    }
+
+  }
+}

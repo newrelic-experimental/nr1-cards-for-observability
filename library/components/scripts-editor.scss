@@ -1,0 +1,42 @@
+.scripts-editor-container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .editor {
+    padding: .5em;
+    overflow: hidden;
+    height: 100%;
+    width: 95%;
+    justify-self: center;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      height: 100%;
+      width: 95%;
+
+      textarea {
+        height: 85%;
+      }
+
+      .settings {
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+
+        label {
+          align-self: center;
+        }
+
+        .stretch {
+          flex: 2;
+        }
+      }
+    }
+  }
+}

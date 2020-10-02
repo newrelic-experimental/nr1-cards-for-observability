@@ -1,0 +1,47 @@
+$default-color: #223030;
+
+.layout-picker {
+  margin-top: -1em;
+
+  .option {
+  	display: inline-block;
+  	box-sizing: border-box;
+  	width: 100px;
+    margin-right: 1em;
+
+    input[type="radio"] {
+    	opacity: 0;
+    	width: 0;
+      height: 0;
+
+      &:active ~ label {
+        opacity: 1;
+      }
+
+      &:checked ~ label {
+        opacity: 1;
+      	border: 1px solid $default-color;
+      }
+    }
+
+    .label {
+    	border: 1px solid rgba($default-color, .15);
+    	box-sizing: border-box;
+    	display: block;
+    	cursor: pointer;
+    	opacity: .5;
+    	transition: all .3s ease-in-out;
+      &:hover, &:focus, &:active {
+    		border: 1px solid rgba($default-color, .5);
+    	}
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      padding: 1em;
+      color: $default-color;
+    }
+  }
+}

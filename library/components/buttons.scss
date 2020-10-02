@@ -1,0 +1,50 @@
+.buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1em;
+
+  .button {
+    appearance: none;
+    box-sizing: border-box;
+    justify-content: center;
+    line-height: 16px;
+    max-width: 100%;
+    min-height: 32px;
+    min-width: 32px;
+    outline: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 125ms ease;
+    user-select: none;
+    vertical-align: top;
+
+    outline: none;
+    background: none;
+    border: none;
+    margin: 0;
+    color: #404660;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0, 19, 132, 0.08);
+
+    &:hover {
+      background-color: #e4ecfa;
+    }
+
+    .icon {
+      position: relative;
+      z-index: 1;
+      transform: scale(0.8);
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-left: -2px;
+    }
+  }
+}

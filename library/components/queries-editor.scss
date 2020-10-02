@@ -1,0 +1,55 @@
+.queries-editor-container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .queries-flow {
+    padding: .5em;
+    width: 95%;
+    justify-self: center;
+    overflow-y: auto;
+
+    .query-editor {
+      width: 95%;
+
+      &:not(:first-child) {
+        padding-top: 1em;
+      }
+
+      .flow-config {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        align-items: center;
+
+        .flow-del {
+          justify-self: end;
+          margin-left: 2em;
+
+          .del {
+            color: #646B8C;
+            border-radius: 6px;
+            padding: .2em .5em;
+            margin: 0;
+
+            &:hover {
+              background-color: #EC5659; // #E1E6F9;
+            }
+          }
+        }
+      }
+
+      .query-entry {
+        height: 150px;
+        margin-bottom: 2em;
+      }
+    }
+
+    .query-actions {
+      margin-left: 1em;
+    }
+  }
+
+}

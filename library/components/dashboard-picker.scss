@@ -1,0 +1,36 @@
+.dashboard-picker {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+
+  .dashboard-list {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-items: center;
+    grid-gap: 1em;
+
+    .item {
+      width: 200px;
+      height: 200px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5em;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #223030;
+      position: relative;
+    }
+  }
+}

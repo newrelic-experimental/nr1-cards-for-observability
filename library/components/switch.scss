@@ -1,0 +1,47 @@
+.switch {
+	padding: 0;
+	border: 0;
+  display: flex;
+  justify-content: flex-end;
+
+  label {
+  	float: left;
+  	text-align: center;
+  	position: relative;
+    cursor: pointer;
+
+    span {
+    	color: #404660;
+    	line-height: 32px;
+    	height: 32px;
+    	padding: 0 16px;
+    	display: block;
+    	transition: all .2s ease;
+      box-shadow: 0 2px 3px rgba(0, 19, 132, 0.08);
+    }
+
+    &:first-of-type {
+      span {
+      	border-top-left-radius: 6px;
+      	border-bottom-left-radius: 6px;
+      	border-right: 0;
+      }
+    }
+
+    &:last-of-type {
+      span {
+      	border-top-right-radius: 6px;
+      	border-bottom-right-radius: 6px;
+      	border-left: 0;
+      }
+    }
+
+    input {
+    	display: none;
+
+      &:checked + span {
+      	background: #e4ecfa;
+      }
+    }
+  }
+}
