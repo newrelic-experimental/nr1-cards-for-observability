@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '../../library/components/icon';
-import DashboardSettings from '../../library/components/dashboard-settings';
-import DashboardDuplicate from '../../library/components/dashboard-duplicate';
+import Icon from './icon';
+import DashboardSettings from './dashboard-settings';
+import DashboardDuplicate from './dashboard-duplicate';
 
 export default class DashboardOptions extends React.Component {
   static propTypes = {
@@ -13,11 +13,11 @@ export default class DashboardOptions extends React.Component {
     user: PropTypes.object,
     onUpdate: PropTypes.func,
     onAuth: PropTypes.func,
-    onCopy: PropTypes.func,
+    onCopy: PropTypes.func
   };
 
   state = {
-    currentTab: 0,
+    currentTab: 0
   };
 
   switchTab = async (e, id) => {
@@ -35,7 +35,7 @@ export default class DashboardOptions extends React.Component {
       user,
       onUpdate,
       onAuth,
-      onCopy,
+      onCopy
     } = this.props;
 
     const tabs = ['Settings', 'Duplicate'];

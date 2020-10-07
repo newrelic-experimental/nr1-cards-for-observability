@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 export default class LayoutPicker extends React.Component {
   static propTypes = {
     layout: PropTypes.string,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func
   };
 
   state = {
-    layout: this.props.layout,
+    layout: this.props.layout
   };
 
   onClick = e => {

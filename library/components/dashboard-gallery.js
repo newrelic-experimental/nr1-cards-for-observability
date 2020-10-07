@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class DashboardBrowser extends React.Component {
   static propTypes = {
     gallery: PropTypes.array,
-    onPick: PropTypes.func,
+    onPick: PropTypes.func
   };
 
   state = {};
@@ -26,7 +26,7 @@ export default class DashboardBrowser extends React.Component {
               <div
                 key={i}
                 className="item"
-                onClick={e => this.openDashboard(i)}
+                onClick={() => this.openDashboard(i)}
               >
                 <span className="name">{g.name}</span>
               </div>

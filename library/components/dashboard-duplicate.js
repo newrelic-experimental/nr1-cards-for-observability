@@ -10,7 +10,7 @@ import {
   getDashboards,
   setDashboards,
   setDashboard,
-  dashboardObject,
+  dashboardObject
 } from '../utils/data';
 
 export default class DashboardDuplicate extends React.Component {
@@ -19,12 +19,12 @@ export default class DashboardDuplicate extends React.Component {
     dashboard: PropTypes.object,
     data: PropTypes.object,
     user: PropTypes.object,
-    onCopy: PropTypes.func,
+    onCopy: PropTypes.func
   };
 
   state = {
     accountId: this.props.accountId,
-    dashboard: this.props.dashboard,
+    dashboard: this.props.dashboard
   };
 
   dupeDashboard = async () => {
@@ -40,13 +40,13 @@ export default class DashboardDuplicate extends React.Component {
       ...{
         id: newId,
         created: { user, timestamp: Date.now() },
-        source: source,
-      },
+        source: source
+      }
     });
 
     dashboards.push(newDashboard);
-    const addMeta = await setDashboards(accountId, dashboards);
-    const addData = await setDashboard(accountId, newId, data);
+    await setDashboards(accountId, dashboards);
+    await setDashboard(accountId, newId, data);
     if (onCopy) onCopy(accountId, newDashboard);
   };
 
@@ -79,7 +79,7 @@ export default class DashboardDuplicate extends React.Component {
         <div className="settings-buttons">
           <Buttons
             buttons={[
-              { text: 'Duplicate', icon: 'copy', onClick: this.dupeDashboard },
+              { text: 'Duplicate', icon: 'copy', onClick: this.dupeDashboard }
             ]}
           />
         </div>

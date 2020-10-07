@@ -14,17 +14,17 @@ import {
   setFavotites,
   getSettings,
   setSettings,
-  dashboardObject,
+  dashboardObject
 } from '../utils/data';
 
 export default class DashboardBrowser extends React.Component {
   static propTypes = {
     user: PropTypes.object,
-    onPick: PropTypes.func,
+    onPick: PropTypes.func
   };
 
   state = {
-    accountId: null,
+    accountId: null
   };
 
   componentDidMount() {
@@ -65,8 +65,8 @@ export default class DashboardBrowser extends React.Component {
       refresh: 30,
       created: {
         user,
-        timestamp: Date.now(),
-      },
+        timestamp: Date.now()
+      }
     });
 
     dashboards.push(dashboard);
@@ -90,7 +90,7 @@ export default class DashboardBrowser extends React.Component {
     const { accountId, dashboards, favorites, accountFavs } = this.state;
     const favorite = {
       accountId,
-      dashboard: dashboards[index],
+      dashboard: dashboards[index]
     };
 
     favorites.push(favorite);
@@ -104,7 +104,7 @@ export default class DashboardBrowser extends React.Component {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
 
-    const { accountId, dashboards, favorites, accountFavs } = this.state;
+    const { accountId, dashboards, accountFavs } = this.state;
     if (dashboards[index].id in accountFavs)
       this.removeFavorite(null, dashboards[index].id);
     dashboards.splice(index, 1);
@@ -152,7 +152,7 @@ export default class DashboardBrowser extends React.Component {
                 <div
                   key={i}
                   className="item"
-                  onClick={e => this.openDashboard(i)}
+                  onClick={() => this.openDashboard(i)}
                 >
                   <span className="name">{d.name}</span>
                   <div className="control-bar">

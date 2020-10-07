@@ -5,7 +5,7 @@ import Icon from './icon';
 
 export default class Buttons extends React.Component {
   static propTypes = {
-    buttons: PropTypes.array,
+    buttons: PropTypes.array
   };
 
   onClick = fn => {
@@ -21,6 +21,7 @@ export default class Buttons extends React.Component {
           ? buttons.map((button, b) => (
               <button
                 key={b}
+                type="button"
                 className="u-unstyledButton button"
                 onClick={button.onClick}
               >

@@ -7,7 +7,7 @@ export default class DashboardControl extends React.Component {
   static propTypes = {
     name: PropTypes.string,
     fetching: PropTypes.bool,
-    onClick: PropTypes.func,
+    onClick: PropTypes.func
   };
 
   clickHandler = (e, type) => {

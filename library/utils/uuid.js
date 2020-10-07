@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-assign */
 // From https://gist.github.com/LeverOne/1308368
 exports.generate = (a, b) => {
   for (
@@ -9,4 +10,4 @@ exports.generate = (a, b) => {
         : '-'
   );
   return b;
-}
+};
