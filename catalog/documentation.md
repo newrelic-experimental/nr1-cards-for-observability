@@ -4,8 +4,6 @@
 
 Cards for Observability is an experimental take on building programmable dashboards in New Relic One. For the data, define queries which can be either NRQL, GraphQL, API or even a javascript object. To display the data in the dashboards, define cards by specifying the HTML and CSS for the cards.
 
-![dashboards collage](screenshots/dashboards-collage.png)
-
 ## Getting started
 
 1. Ensure that you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [NPM](https://www.npmjs.com/get-npm) installed. If you're unsure whether you have one or both of them installed, run the following command. (If you have them installed these commands will return a version number, if not, the commands won't be recognized.)

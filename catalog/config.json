@@ -1,0 +1,17 @@
+{
+  "tagline": "Cards for Observability",
+  "repository": "https://github.com/newrelic/nr1-cards-for-observability.git",
+  "details": "[]",
+  "support": {
+    "issues": {
+      "url": "https://github.com/newrelic/nr1-cards-for-observability/issues"
+    },
+    "email": {
+      "address": "opensource+nr1-cards-for-observability@newrelic.com"
+    },
+    "community": {
+      "url": "https://discuss.newrelic.com/c/build-on-new-relic/nerdpacks"
+    }
+  },
+  "whatsNew": "Initial release"
+}
