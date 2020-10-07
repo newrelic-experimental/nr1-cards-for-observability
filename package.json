@@ -19,8 +19,8 @@
         "dot": "^2.0.0-beta.1",
         "marked": "^1.1.1",
         "prop-types": "^15.6.2",
-        "react": "^16.6.3",
-        "react-dom": "^16.6.3"
+        "react": "16.6.3",
+        "react-dom": "16.6.3"
     },
     "browserslist": [
         "last 2 versions",
