@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { navigation } from 'nr1';
 
 const handleClicks = e => {
@@ -32,7 +33,7 @@ const addScripts = scripts => {
       scriptElem.appendChild(scriptText);
     } else {
       scriptElem.src = script.url;
-      scriptElem.onload = new Function(script.script);
+      scriptElem.onload = new Function(script.script); // eslint-disable-line no-new-func
     }
     document.head.appendChild(scriptElem);
   });
@@ -82,5 +83,5 @@ export {
   emptyBoard,
   nextIndex,
   encoded,
-  refreshRange,
+  refreshRange
 };

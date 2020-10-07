@@ -9,12 +9,12 @@ export default class CardsEditor extends React.Component {
   static propTypes = {
     cards: PropTypes.array,
     accountId: PropTypes.number,
-    onSave: PropTypes.func,
+    onSave: PropTypes.func
   };
 
   state = {
     cards: this.props.cards,
-    selectedCardIndex: -1,
+    selectedCardIndex: -1
   };
 
   addCard = () => {
@@ -31,7 +31,7 @@ export default class CardsEditor extends React.Component {
     cards.push({
       name: cardName,
       code: '',
-      style: defaultStyles,
+      style: defaultStyles
     });
 
     this.setState({ cards });
@@ -46,7 +46,7 @@ export default class CardsEditor extends React.Component {
 
   cardClicked = index =>
     this.setState({
-      selectedCardIndex: index,
+      selectedCardIndex: index
     });
 
   deleteCard = index => {
@@ -70,7 +70,7 @@ export default class CardsEditor extends React.Component {
     const buttons = accountId
       ? [
           { text: 'Add Card', icon: 'plus', onClick: this.addCard },
-          { text: 'Save Cards', icon: 'upstream', onClick: this.saveCards },
+          { text: 'Save Cards', icon: 'upstream', onClick: this.saveCards }
         ]
       : [];
 

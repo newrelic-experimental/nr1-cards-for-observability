@@ -10,16 +10,17 @@ import { getUrl, getFavorites } from '../utils/data';
 export default class DashboardPicker extends React.Component {
   static propTypes = {
     user: PropTypes.object,
-    onPick: PropTypes.func,
+    onPick: PropTypes.func
   };
 
   state = {
-    currentTab: 0,
+    currentTab: 0
   };
 
   switchTab = async (e, id) => {
     e.preventDefault();
-    let favorites, gallery;
+    let favorites;
+    let gallery;
 
     if (id === 1) favorites = await this.loadFavorites();
     if (id === 2) gallery = await this.loadGallery();

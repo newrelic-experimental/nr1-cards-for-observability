@@ -6,10 +6,8 @@ import { getUrl } from '../utils/data';
 
 export default class Help extends React.Component {
   state = {
-    doc: '',
+    doc: ''
   };
-
-  rootUrl = 'https://raw.githubusercontent.com/amit-y/cfo-docs/master/';
 
   componentDidMount() {
     document
@@ -23,6 +21,8 @@ export default class Help extends React.Component {
       .querySelector('.markdown-body')
       .removeEventListener('click', this.captureClicks, false);
   }
+
+  rootUrl = 'https://raw.githubusercontent.com/amit-y/cfo-docs/master/';
 
   getDoc = async path => {
     const text = await getUrl(path, 'text', this.rootUrl);

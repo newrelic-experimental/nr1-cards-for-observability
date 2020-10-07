@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class DashboardFavorites extends React.Component {
   static propTypes = {
     favorites: PropTypes.array,
-    onPick: PropTypes.func,
+    onPick: PropTypes.func
   };
 
   state = {};
@@ -26,7 +26,7 @@ export default class DashboardFavorites extends React.Component {
               <div
                 key={i}
                 className="item"
-                onClick={e => this.openDashboard(i)}
+                onClick={() => this.openDashboard(i)}
               >
                 <span className="name">{f.dashboard.name}</span>
               </div>

@@ -8,7 +8,7 @@ export default class Card extends React.Component {
     card: PropTypes.object,
     data: PropTypes.object,
     layout: PropTypes.string,
-    index: PropTypes.number,
+    index: PropTypes.number
   };
 
   state = {
@@ -22,21 +22,21 @@ export default class Card extends React.Component {
         : (this.props.index + 1) * 50,
     z: 'z' in this.props.card ? this.props.card.z : 900 - this.props.index,
     offsetX: 0,
-    offsetY: 0,
+    offsetY: 0
   };
 
   dragStart = e => {
     const { left, top } = this.state;
     this.setState({
       offsetX: e.clientX - left,
-      offsetY: e.clientY - top,
+      offsetY: e.clientY - top
     });
   };
 
-  dragEnd = e =>
+  dragEnd = () =>
     this.setState({
       offsetX: 0,
-      offsetY: 0,
+      offsetY: 0
     });
 
   drag = e => {
@@ -44,7 +44,7 @@ export default class Card extends React.Component {
     if (e.clientX && e.clientY)
       this.setState({
         left: e.clientX - offsetX,
-        top: e.clientY - offsetY,
+        top: e.clientY - offsetY
       });
   };
 
@@ -94,7 +94,7 @@ export default class Card extends React.Component {
               card.code,
               { ...data, __index: index },
               card.name
-            ),
+            )
           }}
         />
       </>

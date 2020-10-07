@@ -1,3 +1,4 @@
+/* eslint-disable no-return-await, no-new-func, no-console */
 import { NerdGraphQuery } from 'nr1';
 
 import template from './template';
@@ -29,7 +30,8 @@ const runFlow = async (flow, prevResults, name, meta) => {
 };
 
 const runQuery = async (step, curResult, prevResults, name, meta) => {
-  let result, err;
+  let result;
+  let err;
   const queryString = template.compile(
     step.text,
     { currentResult: curResult, previousResults: prevResults, meta },
@@ -73,7 +75,9 @@ const runQuery = async (step, curResult, prevResults, name, meta) => {
 };
 
 const runCode = async (step, curResult, prevResults, name, meta) => {
-  let fn, result, err;
+  let fn;
+  let result;
+  let err;
 
   if (step.type === 'map' && curResult && Array.isArray(curResult)) {
     try {

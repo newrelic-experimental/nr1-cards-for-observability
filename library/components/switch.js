@@ -5,7 +5,7 @@ export default class Switch extends React.Component {
   static propTypes = {
     options: PropTypes.array,
     selected: PropTypes.string,
-    onSelect: PropTypes.func,
+    onSelect: PropTypes.func
   };
 
   onChange = e => {

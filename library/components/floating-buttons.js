@@ -5,7 +5,7 @@ import Icon from './icon';
 
 export default class FloatingButtons extends React.Component {
   static propTypes = {
-    clicked: PropTypes.func,
+    clicked: PropTypes.func
   };
 
   onClick = (e, type) => {

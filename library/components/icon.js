@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class Icon extends React.Component {
-  static defaultProps = {
-    size: '',
-  };
-
   static propTypes = {
     type: PropTypes.string,
     size: PropTypes.oneOf(['', 'large']),
-    color: PropTypes.string,
+    color: PropTypes.string
+  };
+
+  static defaultProps = {
+    size: ''
   };
 
   icons = {
@@ -91,7 +91,7 @@ export default class Icon extends React.Component {
         <path d="M8.7 0H5v13h9V5.3L8.7 0zM9 1.7L12.3 5H9V1.7zM13 12H6V1h2v5h5v6z" />
         <path d="M2 4h1V3H1v13h8v-1H2z" />
       </>
-    ),
+    )
   };
 
   render() {

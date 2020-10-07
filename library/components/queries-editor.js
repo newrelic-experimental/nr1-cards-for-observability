@@ -12,12 +12,12 @@ export default class QueriesEditor extends React.Component {
   static propTypes = {
     queries: PropTypes.array,
     accountId: PropTypes.number,
-    onSave: PropTypes.func,
+    onSave: PropTypes.func
   };
 
   state = {
     queries: this.props.queries,
-    selectedQueryIndex: -1,
+    selectedQueryIndex: -1
   };
 
   addQuery = () => {
@@ -32,10 +32,10 @@ export default class QueriesEditor extends React.Component {
         {
           text: '',
           type: 'nrql',
-          accountId,
-        },
+          accountId
+        }
       ],
-      accountId,
+      accountId
     });
 
     this.setState({ queries });
@@ -50,7 +50,7 @@ export default class QueriesEditor extends React.Component {
 
   queryClicked = index =>
     this.setState({
-      selectedQueryIndex: index,
+      selectedQueryIndex: index
     });
 
   deleteQuery = index => {
@@ -81,7 +81,7 @@ export default class QueriesEditor extends React.Component {
     queries[selectedQueryIndex].flow.push({
       text: '',
       type: 'nrql',
-      accountId,
+      accountId
     });
     this.setState({ queries });
   };
@@ -101,12 +101,12 @@ export default class QueriesEditor extends React.Component {
     const buttons = accountId
       ? [
           { text: 'Add Query', icon: 'plus', onClick: this.addQuery },
-          { text: 'Save Queries', icon: 'upstream', onClick: this.saveQueries },
+          { text: 'Save Queries', icon: 'upstream', onClick: this.saveQueries }
         ]
       : [];
 
     const actionButtons = [
-      { text: 'Add Step', icon: 'plus', onClick: this.addStep },
+      { text: 'Add Step', icon: 'plus', onClick: this.addStep }
     ];
 
     const selectedQuery =
@@ -118,7 +118,7 @@ export default class QueriesEditor extends React.Component {
       { name: 'Fetch', value: 'api' },
       { name: 'Parse', value: 'vars' },
       { name: 'Map', value: 'map' },
-      { name: 'Reduce', value: 'reduce' },
+      { name: 'Reduce', value: 'reduce' }
     ];
 
     return (

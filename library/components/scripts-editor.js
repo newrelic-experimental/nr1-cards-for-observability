@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from './icon';
-import Switch from './switch';
-import Buttons from './buttons';
 import EditorListing from './editor-listing';
 
 import { nextIndex } from '../utils/helper';
@@ -12,12 +9,12 @@ export default class ScriptsEditor extends React.Component {
   static propTypes = {
     scripts: PropTypes.array,
     accountId: PropTypes.number,
-    onSave: PropTypes.func,
+    onSave: PropTypes.func
   };
 
   state = {
     scripts: this.props.scripts,
-    selectedScriptIndex: -1,
+    selectedScriptIndex: -1
   };
 
   addScript = () => {
@@ -28,7 +25,7 @@ export default class ScriptsEditor extends React.Component {
     scripts.push({
       name: scriptName,
       url: '',
-      script: '',
+      script: ''
     });
 
     this.setState({ scripts });
@@ -43,7 +40,7 @@ export default class ScriptsEditor extends React.Component {
 
   scriptClicked = index =>
     this.setState({
-      selectedScriptIndex: index,
+      selectedScriptIndex: index
     });
 
   deleteScript = index => {
@@ -67,7 +64,7 @@ export default class ScriptsEditor extends React.Component {
     const buttons = accountId
       ? [
           { text: 'Add Script', icon: 'plus', onClick: this.addScript },
-          { text: 'Save Scripts', icon: 'upstream', onClick: this.saveScripts },
+          { text: 'Save Scripts', icon: 'upstream', onClick: this.saveScripts }
         ]
       : [];
 

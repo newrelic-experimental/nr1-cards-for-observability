@@ -9,12 +9,12 @@ export default class EditorListing extends React.Component {
     items: PropTypes.array,
     buttons: PropTypes.array,
     editable: PropTypes.bool,
-    onSelect: PropTypes.func,
-    onDelete: PropTypes.func,
+    onSelect: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+    onDelete: PropTypes.func // eslint-disable-line react/no-unused-prop-types
   };
 
   state = {
-    selectedIndex: -1,
+    selectedIndex: -1
   };
 
   onClick = (e, type, index) => {

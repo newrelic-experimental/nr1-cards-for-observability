@@ -12,11 +12,11 @@ export default class DashboardSettings extends React.Component {
     accountId: PropTypes.number,
     dashboard: PropTypes.object,
     onUpdate: PropTypes.func,
-    onAuth: PropTypes.func,
+    onAuth: PropTypes.func
   };
 
   state = {
-    dashboard: this.props.dashboard,
+    dashboard: this.props.dashboard
   };
 
   saveDashboard = async () => {
@@ -25,7 +25,7 @@ export default class DashboardSettings extends React.Component {
 
     if ('protect' in dashboard && dashboard.protect) {
       if ('password' in dashboard && dashboard.password.trim() !== '') {
-        dashboard.encodedPassword = await encoded(dashboard.password.trim());
+        dashboard.encodedPassword = await encoded(dashboard.password.trim()); // eslint-disable-line require-atomic-updates
       }
     } else {
       delete dashboard.protect;
@@ -89,7 +89,7 @@ export default class DashboardSettings extends React.Component {
   };
 
   onEnterKey = (e, fn) => {
-    if (e.keyCode == 13) fn();
+    if (e.keyCode === 13) fn();
   };
 
   layoutChange = layout => {
@@ -119,14 +119,14 @@ export default class DashboardSettings extends React.Component {
             className={`u-unstyledInput ${shakeAuth ? 'shake-x' : ''}`}
             value={authPass || ''}
             onChange={e => this.setState({ authPass: e.target.value })}
-            onAnimationEnd={e => this.setState({ shakeAuth: false })}
+            onAnimationEnd={() => this.setState({ shakeAuth: false })}
             onKeyDown={e => this.onEnterKey(e, this.runAuth)}
           />
         </div>
         <div className="settings-buttons">
           <Buttons
             buttons={[
-              { text: 'Authenticate', icon: 'lock', onClick: this.runAuth },
+              { text: 'Authenticate', icon: 'lock', onClick: this.runAuth }
             ]}
           />
         </div>
@@ -171,7 +171,7 @@ export default class DashboardSettings extends React.Component {
             checked={dashboard.protect || false}
             onChange={e => this.toggle(e, 'protect')}
           />
-          <label className="toggle-button" htmlFor="password-protect"></label>
+          <label className="toggle-button" htmlFor="password-protect" />
         </div>
         {'protect' in dashboard && dashboard.protect ? (
           <div className="form-field">
@@ -187,7 +187,7 @@ export default class DashboardSettings extends React.Component {
         <div className="settings-buttons">
           <Buttons
             buttons={[
-              { text: 'Save', icon: 'upstream', onClick: this.saveDashboard },
+              { text: 'Save', icon: 'upstream', onClick: this.saveDashboard }
             ]}
           />
         </div>

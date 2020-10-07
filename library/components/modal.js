@@ -8,25 +8,25 @@ export default class Modal extends React.Component {
     children: PropTypes.node,
     style: PropTypes.object,
     noClose: PropTypes.bool,
-    onClose: PropTypes.func,
+    onClose: PropTypes.func
   };
 
   state = {
     enterAnim: false,
-    exitAnim: false,
+    exitAnim: false
   };
 
   componentDidMount() {
     this.setState({
       enterAnim: true,
-      exitAnim: false,
+      exitAnim: false
     });
   }
 
-  closeHandler = e => {
+  closeHandler = () => {
     this.setState({
       enterAnim: false,
-      exitAnim: true,
+      exitAnim: true
     });
   };
 
@@ -47,14 +47,18 @@ export default class Modal extends React.Component {
 
     return (
       <>
-        <div className="modal-overlay"></div>
+        <div className="modal-overlay" />
         <div
           className={modalClassList}
           style={style}
           onAnimationEnd={this.doneAnim}
         >
           {!noClose ? (
-            <button className="close-button" onClick={this.closeHandler}>
+            <button
+              type="button"
+              className="close-button"
+              onClick={this.closeHandler}
+            >
               <Icon type="times" color="white" />
             </button>
           ) : null}

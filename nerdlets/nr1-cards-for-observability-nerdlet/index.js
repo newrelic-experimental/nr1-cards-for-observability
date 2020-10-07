@@ -2,7 +2,6 @@ import React from 'react';
 
 import { nerdlet, NerdletStateContext, Spinner } from 'nr1';
 
-import Icon from '../../library/components/icon';
 import Card from '../../library/components/card';
 import Help from '../../library/components/help';
 import Modal from '../../library/components/modal';
@@ -20,23 +19,21 @@ import {
   getDashboards,
   getDashboard,
   setDashboard,
-  getUrl,
+  getUrl
 } from '../../library/utils/data';
 import {
   handleClicks,
   addScripts,
-  emptyBoard,
+  emptyBoard
 } from '../../library/utils/helper';
 
 export default class CardsForObservability extends React.Component {
-  static contextType = NerdletStateContext;
-
   state = {
     modal: '',
     data: {},
     fetching: false,
     current: { auth: false },
-    showPicker: false,
+    showPicker: false
   };
 
   componentDidMount() {
@@ -50,6 +47,8 @@ export default class CardsForObservability extends React.Component {
     document.removeEventListener('click', handleClicks, false);
     window.removeEventListener('message', this.handleMessages, false);
   }
+
+  static contextType = NerdletStateContext;
 
   handleMessages = e => {
     if (window.origin !== e.origin) return;
@@ -80,13 +79,13 @@ export default class CardsForObservability extends React.Component {
     const dashboardData = board || emptyBoard;
 
     if ('logBoardJSON' in window && window.logBoardJSON) {
-      console.log(JSON.stringify(dashboardData));
+      console.log(JSON.stringify(dashboardData)); // eslint-disable-line no-console
       window.logBoardJSON = false;
     }
 
     if (accountId)
       nerdlet.setUrlState({
-        dashboard: `${(dashboard.id || '').replace(/-/g, '')}${accountId}`,
+        dashboard: `${(dashboard.id || '').replace(/-/g, '')}${accountId}`
       });
 
     current.auth = false;
@@ -97,7 +96,7 @@ export default class CardsForObservability extends React.Component {
         dashboardData,
         firstFetch: false,
         current,
-        showPicker: true,
+        showPicker: true
       },
       () => this.fetchTimeout(true)
     );
@@ -142,7 +141,7 @@ export default class CardsForObservability extends React.Component {
           fetchTimeoutId:
             'refresh' in dashboard && dashboard.refresh
               ? setTimeout(this.startFetch, dashboard.refresh * 1000)
-              : null,
+              : null
         },
         this.postFetch
       );
@@ -204,7 +203,7 @@ export default class CardsForObservability extends React.Component {
       dashboardData: emptyBoard,
       data: null,
       fetchTimeoutId: null,
-      current,
+      current
     });
   };
 
@@ -230,7 +229,7 @@ export default class CardsForObservability extends React.Component {
       accountId,
       dashboard,
       dashboardData: { queries, scripts, cards } = {},
-      current: { user },
+      current: { user }
     } = this.state;
 
     switch (type) {
@@ -280,18 +279,17 @@ export default class CardsForObservability extends React.Component {
   render() {
     const {
       modal,
-      accountId,
       dashboard,
       dashboardData: { cards } = {},
       data,
       fetching,
       current,
-      showPicker,
+      showPicker
     } = this.state;
 
     const picker = showPicker ? (
       <div className="container">
-        <Modal style={{ width: '90%', height: '90%' }} noClose={true}>
+        <Modal style={{ width: '90%', height: '90%' }} noClose>
           <DashboardPicker user={current.user} onPick={this.pickDashboard} />
         </Modal>
       </div>
