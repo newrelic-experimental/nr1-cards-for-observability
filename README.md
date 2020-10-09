@@ -1,5 +1,7 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
+![CI](https://github.com/newrelic-experimental/nr1-cards-for-observability/workflows/CI/badge.svg) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic-experimental/nr1-cards-for-observability?include_prereleases&sort=semver) ![Known Vulnerabilities](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability/badge.svg)
+
 # Cards for Observability
 
 Cards for Observability is an experimental take on building programmable dashboards in New Relic One. For the data, define queries which can be either NRQL, GraphQL, API or even a javascript object. To display the data in the dashboards, define cards by specifying the HTML and CSS for the cards.
@@ -55,7 +57,7 @@ If you have any questions, or to execute our corporate CLA, required if your con
 
 ## Security
 
-As noted in our [security policy](security/policy), New Relic is committed to the privacy and security of our customers and their data. We believe that providing coordinated disclosure by security researchers and engaging with the security community are important means to achieve our security goals.
+As noted in our [security policy](../../security/policy), New Relic is committed to the privacy and security of our customers and their data. We believe that providing coordinated disclosure by security researchers and engaging with the security community are important means to achieve our security goals.
 
 If you believe you have found a security vulnerability in this project or any of New Relic's products or websites, we welcome and greatly appreciate you reporting it to New Relic through [HackerOne](https://hackerone.com/newrelic).
 
