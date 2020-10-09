@@ -1,3 +1,8 @@
+## 0.3.3 (October 9, 2020)
+
+* No feature changes
+* Cleanup repo
+
 ## 0.3.2 (October 9, 2020)
 
 * No feature changes

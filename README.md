@@ -1,6 +1,6 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
-![CI](https://github.com/newrelic-experimental/nr1-cards-for-observability/workflows/CI/badge.svg) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic-experimental/nr1-cards-for-observability?include_prereleases&sort=semver) ![Known Vulnerabilities](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability/badge.svg)
+[![CI](https://github.com/newrelic-experimental/nr1-cards-for-observability/workflows/CI/badge.svg)](https://github.com/newrelic-experimental/nr1-cards-for-observability/actions?query=workflow%3ACI) [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic-experimental/nr1-cards-for-observability?include_prereleases&sort=semver)](https://github.com/newrelic-experimental/nr1-cards-for-observability/releases) [![Known Vulnerabilities](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability/badge.svg)](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability)
 
 # Cards for Observability
 
