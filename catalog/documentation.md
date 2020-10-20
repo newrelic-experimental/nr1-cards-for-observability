@@ -1,12 +1,10 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
-[![CI](https://github.com/newrelic-experimental/nr1-cards-for-observability/workflows/CI/badge.svg)](https://github.com/newrelic-experimental/nr1-cards-for-observability/actions?query=workflow%3ACI) [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic-experimental/nr1-cards-for-observability?include_prereleases&sort=semver)](https://github.com/newrelic-experimental/nr1-cards-for-observability/releases) [![Known Vulnerabilities](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability/badge.svg)](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability)
+![CI](https://github.com/newrelic-experimental/nr1-cards-for-observability/workflows/CI/badge.svg) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/newrelic-experimental/nr1-cards-for-observability?include_prereleases&sort=semver) ![Known Vulnerabilities](https://snyk.io/test/github/newrelic-experimental/nr1-cards-for-observability/badge.svg)
 
 # Cards for Observability
 
 Cards for Observability is an experimental take on building programmable dashboards in New Relic One. For the data, define queries which can be either NRQL, GraphQL, API or even a javascript object. To display the data in the dashboards, define cards by specifying the HTML and CSS for the cards.
-
-![dashboards collage](screenshots/dashboards-collage.png)
 
 ## Getting started
 
