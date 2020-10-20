@@ -1,23 +1,35 @@
 /* eslint-disable array-callback-return */
 import { navigation } from 'nr1';
 
+const openDashboard = params => {
+  let urlState = {};
+  if (params.length) {
+    if (params.length > 0) urlState.entityId = params[0];
+    if (params.length > 1) urlState.selectedPage = params[1];
+    if (params.length > 2) urlState = { ...urlState, ...JSON.parse(params[2]) };
+  }
+  const nerdlet = { id: 'dashboards.dashboard', urlState };
+  navigation.openStackedNerdlet(nerdlet);
+};
+
 const handleClicks = e => {
   const target = e.target;
   if (target) {
     const href = target.getAttribute('href');
     if (href) {
       const urlParts = href.split('/');
-      if (urlParts[0].toLowerCase() === 'nr:') {
+      const [scheme, , ...args] = urlParts;
+      if (scheme.toLowerCase() === 'nr:') {
         e.preventDefault();
-        if (
-          urlParts.length > 3 &&
-          ['dashboard', 'entity'].indexOf(urlParts[2].toLowerCase()) > -1
-        ) {
-          navigation.openStackedEntity(urlParts[3]);
-        }
+        if (args.length) openLink(args);
       }
     }
   }
+};
+
+const openLink = args => {
+  const [type, ...params] = args;
+  if (type === 'dashboard') openDashboard(params);
 };
 
 const addScripts = scripts => {
@@ -79,6 +91,7 @@ const refreshRange = (val, type) => {
 
 export {
   handleClicks,
+  openLink,
   addScripts,
   emptyBoard,
   nextIndex,
