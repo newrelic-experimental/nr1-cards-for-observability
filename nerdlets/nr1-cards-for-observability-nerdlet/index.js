@@ -23,6 +23,7 @@ import {
 } from '../../library/utils/data';
 import {
   handleClicks,
+  openLink,
   addScripts,
   emptyBoard
 } from '../../library/utils/helper';
@@ -52,7 +53,10 @@ export default class CardsForObservability extends React.Component {
 
   handleMessages = e => {
     if (window.origin !== e.origin) return;
-    if (e.data === 'refresh-data') this.fetchTimeout(true);
+    const msgParts = e.data.split('|');
+    const [cmd, ...args] = msgParts;
+    if (cmd === 'refresh-data') this.fetchTimeout(true);
+    if (cmd === 'open-link') openLink(args);
   };
 
   loadDashboard = async dashboardCode => {
