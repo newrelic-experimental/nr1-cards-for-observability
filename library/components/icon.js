@@ -91,6 +91,9 @@ export default class Icon extends React.Component {
         <path d="M8.7 0H5v13h9V5.3L8.7 0zM9 1.7L12.3 5H9V1.7zM13 12H6V1h2v5h5v6z" />
         <path d="M2 4h1V3H1v13h8v-1H2z" />
       </>
+    ),
+    goto: (
+      <path d="M9.4 1.6l-.8.8L12.3 6H1v8h1V7h10.3l-3.7 3.6.8.8 4.8-4.9z" />
     )
   };
 

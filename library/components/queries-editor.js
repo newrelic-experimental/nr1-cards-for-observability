@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { AccountPicker } from 'nr1';
+
 import Icon from './icon';
 import Switch from './switch';
 import Buttons from './buttons';
@@ -71,6 +73,13 @@ export default class QueriesEditor extends React.Component {
     const { queries, selectedQueryIndex } = this.state;
 
     queries[selectedQueryIndex].flow[index].type = type;
+    this.setState({ queries });
+  };
+
+  updateAccount = (accountId, index) => {
+    const { queries, selectedQueryIndex } = this.state;
+
+    queries[selectedQueryIndex].flow[index].accountId = accountId;
     this.setState({ queries });
   };
 
@@ -157,6 +166,15 @@ export default class QueriesEditor extends React.Component {
                     }`}
                     value={queryFlow.text}
                     onChange={e => this.updateTextarea(e, f)}
+                  />
+                </div>
+                <div className="step-account-picker">
+                  <Icon type="goto" />
+                  <AccountPicker
+                    value={queryFlow.accountId}
+                    onChange={(e, accountId) =>
+                      this.updateAccount(accountId, f)
+                    }
                   />
                 </div>
               </div>
