@@ -162,21 +162,23 @@ export default class QueriesEditor extends React.Component {
                 <div className="query-entry">
                   <textarea
                     className={`u-unstyledInput editor-textarea ${
-                      ['nrql', 'gql'].indexOf(queryFlow.type) > -1 ? 'wrap' : ''
+                      ['nrql', 'gql'].includes(queryFlow.type) ? 'wrap' : ''
                     }`}
                     value={queryFlow.text}
                     onChange={e => this.updateTextarea(e, f)}
                   />
                 </div>
-                <div className="step-account-picker">
-                  <Icon type="goto" />
-                  <AccountPicker
-                    value={queryFlow.accountId}
-                    onChange={(e, accountId) =>
-                      this.updateAccount(accountId, f)
-                    }
-                  />
-                </div>
+                {['nrql', 'gql'].includes(queryFlow.type) ? (
+                  <div className="step-account-picker">
+                    <Icon type="goto" />
+                    <AccountPicker
+                      value={queryFlow.accountId}
+                      onChange={(e, accountId) =>
+                        this.updateAccount(accountId, f)
+                      }
+                    />
+                  </div>
+                ) : null}
               </div>
             ))}
             <div className="query-actions">
