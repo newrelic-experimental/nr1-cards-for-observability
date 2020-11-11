@@ -183,13 +183,22 @@ export default class CardsForObservability extends React.Component {
     );
     window.boardStorage = {
       data: {},
-      get items() { return this.data; },
+      get items() {
+        return this.data;
+      },
       getItem(id) {
+        // eslint-disable-next-line no-prototype-builtins
         return this.data.hasOwnProperty(id) ? this.data[id] : undefined;
       },
-      setItem(id, value) { this.data[id] = value; },
-      removeItem(id) { delete this.data[id]; },
-      clear() { this.data = {}; }
+      setItem(id, value) {
+        this.data[id] = value;
+      },
+      removeItem(id) {
+        delete this.data[id];
+      },
+      clear() {
+        this.data = {};
+      }
     };
   };
 
@@ -209,6 +218,7 @@ export default class CardsForObservability extends React.Component {
   closeDashboard = () => {
     document.dispatchEvent(new CustomEvent('dashboardclosed'));
     this.fetchTimeout();
+    if ('boardStorage' in window) window.boardStorage.clear();
     nerdlet.setUrlState({ dashboard: null });
     const { current } = this.state;
     current.auth = false;
@@ -304,7 +314,7 @@ export default class CardsForObservability extends React.Component {
 
     const store = 'boardStorage' in window ? window.boardStorage.items : {};
 
-    const cardData = {...data, ...store};
+    const cardData = { ...data, ...store };
 
     const picker = showPicker ? (
       <div className="container">
