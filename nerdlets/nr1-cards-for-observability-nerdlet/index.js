@@ -159,6 +159,7 @@ export default class CardsForObservability extends React.Component {
 
     if (!firstFetch) {
       addScripts(scripts);
+      if ('boardStorage' in window) window.boardStorage.clear();
       this.setState({ firstFetch: true });
     }
     document.dispatchEvent(new CustomEvent('datarefreshed', { detail: data }));
@@ -180,6 +181,16 @@ export default class CardsForObservability extends React.Component {
     this.setState({ current, showPicker: !dashboard }, () =>
       dashboard ? this.loadDashboard(dashboard) : null
     );
+    window.boardStorage = {
+      data: {},
+      get items() { return this.data; },
+      getItem(id) {
+        return this.data.hasOwnProperty(id) ? this.data[id] : undefined;
+      },
+      setItem(id, value) { this.data[id] = value; },
+      removeItem(id) { delete this.data[id]; },
+      clear() { this.data = {}; }
+    };
   };
 
   markAuth = () => {
@@ -291,6 +302,10 @@ export default class CardsForObservability extends React.Component {
       showPicker
     } = this.state;
 
+    const store = 'boardStorage' in window ? window.boardStorage.items : {};
+
+    const cardData = {...data, ...store};
+
     const picker = showPicker ? (
       <div className="container">
         <Modal style={{ width: '90%', height: '90%' }} noClose>
@@ -304,13 +319,13 @@ export default class CardsForObservability extends React.Component {
     return dashboard ? (
       <div className={`container ${dashboard.layout || ''}`}>
         {cards &&
-          data &&
-          Object.keys(data).length > 0 &&
+          cardData &&
+          Object.keys(cardData).length > 0 &&
           cards.map((card, c) => (
             <Card
               key={c}
               card={card}
-              data={data}
+              data={cardData}
               layout={dashboard.layout || 'fluid'}
               index={c}
             />
