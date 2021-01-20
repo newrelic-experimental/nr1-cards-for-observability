@@ -54,10 +54,10 @@ export default class Card extends React.Component {
 
     let cardArray = null;
 
-    if ('query' in card && card.query) {
+    if (card.query) {
       const { query, ...querylessCard } = card;
 
-      if (card.query in data && data[card.query].length)
+      if (data && data[card.query] && data[card.query].length)
         cardArray = data[card.query].map((res, r) => (
           <Card
             key={r}
@@ -71,7 +71,7 @@ export default class Card extends React.Component {
 
     const cardIteration = '__index' in data ? `idx${data.__index}` : '';
 
-    return 'query' in card && card.query ? (
+    return card.query ? (
       <>{cardArray}</>
     ) : (
       <>
