@@ -57,7 +57,7 @@ export default class Card extends React.Component {
     if ('query' in card && card.query) {
       const { query, ...querylessCard } = card;
 
-      if (card.query in data && data[card.query].length)
+      if (data && data[card.query] && data[card.query].length)
         cardArray = data[card.query].map((res, r) => (
           <Card
             key={r}
