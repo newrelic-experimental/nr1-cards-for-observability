@@ -130,7 +130,7 @@ export default class CardsForObservability extends React.Component {
       dashboard,
       dashboardData: { queries } = {},
       data: curData,
-      current,
+      current
     } = this.state;
 
     const selectedQueries = queryList && queryList.length ? queryList : null;
