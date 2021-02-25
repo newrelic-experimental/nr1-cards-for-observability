@@ -55,7 +55,7 @@ export default class CardsForObservability extends React.Component {
     if (window.origin !== e.origin) return;
     const msgParts = e.data.split('|');
     const [cmd, ...args] = msgParts;
-    if (cmd === 'refresh-data') this.fetchTimeout(true);
+    if (cmd === 'refresh-data') this.fetchTimeout(true, args);
     if (cmd === 'open-link') openLink(args);
   };
 
@@ -119,23 +119,35 @@ export default class CardsForObservability extends React.Component {
     this.setState({ dashboardData }, () => this.fetchTimeout(true));
   };
 
-  startFetch = () => {
+  startFetch = queryList => {
     const { fetching } = this.state;
-    if (!fetching) this.setState({ fetching: true }, () => this.fetchData());
+    if (!fetching)
+      this.setState({ fetching: true }, () => this.fetchData(queryList));
   };
 
-  fetchData = async () => {
-    const { dashboard, dashboardData: { queries } = {}, current } = this.state;
+  fetchData = async queryList => {
+    const {
+      dashboard,
+      dashboardData: { queries } = {},
+      data: curData,
+      current,
+    } = this.state;
+
+    const selectedQueries = queryList && queryList.length ? queryList : null;
 
     if (queries && queries.length) {
       const data = {};
       for await (const query of queries) {
-        data[query.name] = await engine.runFlow(
-          query.flow,
-          data,
-          query.name,
-          current
-        );
+        if (!selectedQueries || selectedQueries.includes(query.name)) {
+          data[query.name] = await engine.runFlow(
+            query.flow,
+            data,
+            query.name,
+            current
+          );
+        } else {
+          data[query.name] = curData[query.name];
+        }
       }
 
       this.setState(
@@ -165,10 +177,10 @@ export default class CardsForObservability extends React.Component {
     document.dispatchEvent(new CustomEvent('datarefreshed', { detail: data }));
   };
 
-  fetchTimeout = start => {
+  fetchTimeout = (start, queryList) => {
     const { fetchTimeoutId } = this.state;
     if (fetchTimeoutId) clearTimeout(fetchTimeoutId);
-    if (start) this.startFetch();
+    if (start) this.startFetch(queryList);
   };
 
   setup = async () => {
