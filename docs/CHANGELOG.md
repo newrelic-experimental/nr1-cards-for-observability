@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/newrelic-experimental/nr1-cards-for-observability/compare/v1.1.0...v1.2.0) (2021-02-25)
+
+
+### Features
+
+* ability to fetch select queries ([b3d899d](https://github.com/newrelic-experimental/nr1-cards-for-observability/commit/b3d899de5451dffc3c8fb7fa32b99cc4b9c38669))
+
 # [1.1.0](https://github.com/newrelic-experimental/nr1-cards-for-observability/compare/v1.0.0...v1.1.0) (2020-11-11)
 
 
